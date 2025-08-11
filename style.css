@@ -1,0 +1,37 @@
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --accent:#67e8f9;
+  --muted:#9ca3af;
+  --glass: rgba(255,255,255,0.03);
+  --success:#10b981;
+  --danger:#ef4444;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:linear-gradient(180deg,#071029 0%, #07112a 100%);color:#e6eef6}
+header{padding:18px 24px;display:flex;align-items:center;justify-content:space-between}
+header h1{margin:0;font-size:20px;letter-spacing:0.4px}
+.meta{display:flex;gap:10px;align-items:center}
+button{background:var(--glass);border:1px solid rgba(255,255,255,0.04);padding:8px 10px;border-radius:8px;color:var(--accent);cursor:pointer}
+button:hover{filter:brightness(1.1)}
+input[type="number"]{width:72px;padding:6px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+main{padding:18px 24px}
+.cards{display:flex;gap:16px;flex-wrap:wrap}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;flex:1;min-width:280px;max-width:720px}
+#tasksList{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.taskItem{display:flex;align-items:center;gap:10px;padding:8px;border-radius:8px;background:rgba(255,255,255,0.01)}
+.taskItem input[type="checkbox"]{width:20px;height:20px}
+.taskItem label{flex:1}
+.progress{margin-top:8px}
+.calendar{margin-top:18px}
+#daysGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(44px,1fr));gap:8px}
+.dayCell{height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.02);cursor:pointer}
+.dayCell.done{background:linear-gradient(90deg,var(--success),#6ee7b7);color:#042014}
+#photosList{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.photoThumb{width:84px;height:84px;object-fit:cover;border-radius:8px;border:1px solid rgba(255,255,255,0.04)}
+textarea{width:100%;min-height:80px;margin-top:8px;border-radius:8px;padding:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+footer{padding:18px 24px;color:var(--muted)}
+@media(max-width:720px){
+  .cards{flex-direction:column}
+}

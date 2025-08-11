@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#67e8f9">
+  <link rel="icon" href="icon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>75 Hard Checklist</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Simple 75 Hard checklist web app — tracks daily tasks, progress photos, and streaks. Works offline (PWA-ready).">
+</head>
+<body>
+  <header>
+    <h1>75 Hard Checklist</h1>
+    <div class="meta">
+      <label>Day: <input id="dayNumber" type="number" min="1" max="75" value="1"></label>
+      <button id="newDayBtn">New Day</button>
+      <button id="exportBtn">Export CSV</button>
+      <button id="resetBtn" title="Reset all data">Reset</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="cards">
+      <div class="card">
+        <h2>Daily Tasks</h2>
+        <ul id="tasksList">
+          <!-- tasks populated by JS -->
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Progress</h2>
+        <div id="progress">
+          <p>Completed tasks: <span id="completedCount">0</span>/7</p>
+          <progress id="progressBar" value="0" max="7"></progress>
+          <p>Days completed: <span id="daysCompleted">0</span>/75</p>
+        </div>
+
+        <h3>Photos</h3>
+        <div id="photoArea">
+          <input type="file" id="photoInput" accept="image/*" />
+          <div id="photosList"></div>
+        </div>
+
+        <h3>Notes</h3>
+        <textarea id="notes" placeholder="Daily notes..."></textarea>
+      </div>
+    </section>
+
+    <section class="calendar">
+      <h2>Days Overview</h2>
+      <div id="daysGrid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <small>Made for you — export, deploy to GitHub Pages, or host anywhere static files are supported.</small>
+  </footer>
+
+<script src="app.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./service-worker.js')
+    .then(() => console.log('Service Worker Registered'));
+}
+</script>
+</body>
+</html>
